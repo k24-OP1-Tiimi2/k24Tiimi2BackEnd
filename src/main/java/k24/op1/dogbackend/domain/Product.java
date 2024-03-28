@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Tuote {
+public class Product {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +22,9 @@ public class Tuote {
     private double price;
     private String manufacturer;
 
-    public Tuote() {}
+    public Product() {}
 
-    public Tuote(String name, String description, String type, String color, String size, double price,
+    public Product(String name, String description, String type, String color, String size, double price,
             String manufacturer) {
         this.name = name;
         this.description = description;
