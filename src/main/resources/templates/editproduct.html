@@ -8,7 +8,7 @@
 
 <h2>Edit Product</h2>
 <div>
-<form th:object="${product}" th:action="@{../saveproduct}" action = "#" method="post" >
+<form th:object="${product}" th:action="@{../addproduct}" action = "#" method="post" >
     <input type="hidden" th:field="*{id}" readonly="readonly">
     <label>Name:</label>
     <input type="text" th:field="*{name}" required/><br/>
@@ -17,7 +17,7 @@
     <input type="text" th:field="*{description}" required/><br/>
 
     <label>Type:</label>
-    <input type="number" th:field="*{type}" required/><br/>
+    <input type="text" th:field="*{type}" required/><br/>
 
     <label>Color:</label>
     <input type="text" th:field="*{color}" required/><br/>
