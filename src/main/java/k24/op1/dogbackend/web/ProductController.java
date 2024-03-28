@@ -16,7 +16,7 @@ public class ProductController {
 
     @GetMapping("/dogstore")
     public String showDogStore(Model model) {
-        model.addAttribute("product", productRepository.findAll());
+        model.addAttribute("products", productRepository.findAll());
         return "dogstore";
     }
     
