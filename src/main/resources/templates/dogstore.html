@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Dog Store</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
 
-<header>
-    <h1>Welcome to our Dog Store</h1>
-</header>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-        <th>Color</th>
-        <th>Size</th>
-        <th>Price</th>
-        <th>Manufacturer</th>
-    </tr>
-        <tr th:each = "product : ${products}">
-            <td th:text = "${product.name}"></td>
-            <td th:text = "${product.description}"></td>
-            <td th:text = "${product.type}"></td>
-            <td th:text = "${product.color}"></td>
-            <td th:text = "${product.size}"></td>
-            <td th:text = "${product.price}"></td>
-            <td th:text = "${product.manufacturer}"></td>
+    <header>
+        <h1>Welcome to our Dog Store</h1>
+    </header>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Manufacturer</th>
         </tr>
-</table>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.type}"></td>
+            <td th:text="${product.color}"></td>
+            <td th:text="${product.size}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.manufacturer}"></td>
+        </tr>
+    </table>
+
+    <a href="/addproduct">Add Product</a>
 
 </body>
+
 </html>

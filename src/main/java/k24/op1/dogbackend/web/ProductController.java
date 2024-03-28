@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -19,5 +22,17 @@ public class ProductController {
         model.addAttribute("products", productRepository.findAll());
         return "dogstore";
     }
+
+    @GetMapping("/addproduct")
+    public String addProductForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "addproduct";
+    }
     
+    @PostMapping("/addproduct")
+    public String addProduct(@ModelAttribute Product newProduct) {
+        productRepository.save(newProduct);
+        return "redirect:/dogstore";
+    }
+
 }
