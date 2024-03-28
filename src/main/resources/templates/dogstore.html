@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 
 <header>
     <h1>Welcome to our Dog Store</h1>
 </header>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Color</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Manufacturer</th>
+    </tr>
+        <tr th:each = "product : ${products}">
+            <td th:text = "${product.name}"></td>
+            <td th:text = "${product.description}"></td>
+            <td th:text = "${product.type}"></td>
+            <td th:text = "${product.color}"></td>
+            <td th:text = "${product.size}"></td>
+            <td th:text = "${product.price}"></td>
+            <td th:text = "${product.manufacturer}"></td>
+        </tr>
+</table>
 
-<div>
-    <h2></h2>
-    <p></p>
-</div>
-
-<footer>
-    <p>&copy; 2024 Dog Store</p>
-</footer>
 </body>
 </html>
