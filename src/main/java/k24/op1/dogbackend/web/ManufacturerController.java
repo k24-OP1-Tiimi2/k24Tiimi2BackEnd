@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import k24.op1.dogbackend.domain.Manufacturer;
 import k24.op1.dogbackend.domain.ManufacturerRepository;
-import k24.op1.dogbackend.domain.Product;
 
 @Controller
 public class ManufacturerController {
