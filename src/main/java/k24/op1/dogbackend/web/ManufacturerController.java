@@ -20,7 +20,7 @@ public class ManufacturerController {
 
     @GetMapping("/manufacturerlist")
     public String showDogStore(Model model) {
-        model.addAttribute("products", manufacturerRepository.findAll());
+        model.addAttribute("manufacturers", manufacturerRepository.findAll());
         return "manufacturerlist";
     }
 
