@@ -18,6 +18,8 @@
             <th>Name</th>
             <th>Country</th>
             <th>Business ID</th>
+            <th></th>
+            <th></th>
         </tr>
         <tr th:each="manufacturer : ${manufacturers}">
             <td th:text="${manufacturer.id}"></td>
@@ -27,7 +29,6 @@
 
             <td><a class="btn btn-danger" th:href="@{/deletemanufacturer/{id}(id = ${manufacturer.id})}" onClick="return confirm('Are you sure you want to delete this manufacturer?')">Delete</a></td>
             <td><a class="btn btn-secondary" th:href="@{/editmanufacturer/{id}(id = ${manufacturer.id})}">Edit</a></td>
-            <a href="/productlist">Products</a>
         </tr>
     </table>
 

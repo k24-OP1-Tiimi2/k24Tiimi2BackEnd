@@ -48,9 +48,9 @@ public class ManufacturerController {
     public String editManufacturer(@PathVariable("id") Long id, Model model) {
         if (id != null) {
             Manufacturer manufacturer = manufacturerRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
+            .orElseThrow(() -> new IllegalArgumentException("Invalid manufacturer Id: " + id));
             model.addAttribute("manufacturer", manufacturer);
         }
-        return "editproduct";
+        return "editmanufacturer";
     }
 }
