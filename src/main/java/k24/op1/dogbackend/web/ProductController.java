@@ -11,15 +11,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 public class ProductController {
-    
+
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/productlist")
+    @GetMapping("/dogstore")
     public String showDogStore(Model model) {
+        model.addAttribute("products", productRepository.findAll());
+        return "dogstore";
+    }
+
+    @GetMapping("/productlist")
+    public String showProductlist(Model model) {
         model.addAttribute("products", productRepository.findAll());
         return "productlist";
     }
@@ -29,7 +34,7 @@ public class ProductController {
         model.addAttribute("product", new Product());
         return "addproduct";
     }
-    
+
     @PostMapping("/addproduct")
     public String addProduct(@ModelAttribute Product newProduct) {
         productRepository.save(newProduct);
@@ -48,10 +53,10 @@ public class ProductController {
     public String editProduct(@PathVariable("id") Long id, Model model) {
         if (id != null) {
             Product product = productRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
             model.addAttribute("product", product);
         }
         return "editproduct";
     }
-    
+
 }
