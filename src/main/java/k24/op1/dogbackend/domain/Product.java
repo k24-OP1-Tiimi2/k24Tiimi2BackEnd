@@ -19,6 +19,8 @@ public class Product {
     private double price;
     private String manufacturer;
 
+    
+
     public Product() {}
 
     public Product(String name, String description, String type, String color, String size, double price,
