@@ -18,10 +18,10 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/dogstore")
+    @GetMapping("/productlist")
     public String showDogStore(Model model) {
         model.addAttribute("products", productRepository.findAll());
-        return "dogstore";
+        return "productlist";
     }
 
     @GetMapping("/addproduct")
@@ -33,7 +33,7 @@ public class ProductController {
     @PostMapping("/addproduct")
     public String addProduct(@ModelAttribute Product newProduct) {
         productRepository.save(newProduct);
-        return "redirect:/dogstore";
+        return "redirect:/productlist";
     }
 
     @GetMapping("/deleteproduct/{id}")
@@ -41,7 +41,7 @@ public class ProductController {
         if (id != null) {
             productRepository.deleteById(id);
         }
-        return "redirect:/dogstore";
+        return "redirect:/productlist";
     }
 
     @GetMapping("/editproduct/{id}")
