@@ -1,9 +1,15 @@
 package k24.op1.dogbackend.domain;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Manufacturer {
@@ -15,15 +21,18 @@ public class Manufacturer {
     private String country;
     private String businessid;
 
-    public Manufacturer() {
-
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
+    @JsonIgnoreProperties("manufacturer")
+    private List<Product> products;
 
     public Manufacturer(String name, String country, String businessid) {
-
         this.name = name;
         this.country = country;
         this.businessid = businessid;
+    }
+
+    public Manufacturer() {
+
     }
 
     public Long getId() {
@@ -58,10 +67,12 @@ public class Manufacturer {
         this.businessid = businessid;
     }
 
-    @Override
-    public String toString() {
-        return "Manufacturer [id=" + id + ", name=" + name + ", country=" + country + ", businessid=" + businessid
-                + "]";
+    public List<Product> getProducts() {
+        return products;
     }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+    
 }

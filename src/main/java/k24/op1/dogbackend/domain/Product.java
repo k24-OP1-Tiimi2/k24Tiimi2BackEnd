@@ -1,9 +1,13 @@
 package k24.op1.dogbackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Product {
@@ -17,14 +21,14 @@ public class Product {
     private String color;
     private String size;
     private double price;
-    private String manufacturer;
 
-    
-
-    public Product() {}
+    @ManyToOne
+    @JsonIgnoreProperties("products")
+    @JoinColumn(name = "manufacturerid")
+    private Manufacturer manufacturer;
 
     public Product(String name, String description, String type, String color, String size, double price,
-            String manufacturer) {
+            Manufacturer manufacturer) {
         this.name = name;
         this.description = description;
         this.type = type;
@@ -32,6 +36,18 @@ public class Product {
         this.size = size;
         this.price = price;
         this.manufacturer = manufacturer;
+    }
+
+    public Product() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -82,26 +98,13 @@ public class Product {
         this.price = price;
     }
 
-    public String getManufacturer() {
+    public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
-
-    public Long getId() {
-        return id;
+    
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "Product [id=" + id + ", name=" + name + ", description=" + description + ", type=" + type + ", color="
-                + color + ", size=" + size + ", price=" + price + ", manufacturer=" + manufacturer + "]";
-    }
-}
 

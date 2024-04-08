@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import k24.op1.dogbackend.domain.Manufacturer;
+import k24.op1.dogbackend.domain.ManufacturerRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
 
@@ -17,11 +19,14 @@ public class DogbackendApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ProductRepository productRepository) {
+	public CommandLineRunner initData(ProductRepository productRepository, ManufacturerRepository manufacturerRepository) {
 		return (args) -> {
 
-		productRepository.save(new Product("Ulkoilutakki", "Ulkoiluun soveltuva takki", "Varuste", "Multicolor", "Onesize", 50.00, "Rukka"));
-		};
-	}
+			Manufacturer m1 = new Manufacturer("Rukka", "Finland", "123-456");
+			manufacturerRepository.save(m1);
 
+			productRepository.save(new Product("Tuote", "Koiran tuote", "Vaate", "Punainen", "S", 50.00, m1));
+		};
+
+}
 }
