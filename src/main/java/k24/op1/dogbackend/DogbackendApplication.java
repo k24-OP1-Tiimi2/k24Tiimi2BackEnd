@@ -25,8 +25,8 @@ public class DogbackendApplication {
 			Manufacturer m1 = new Manufacturer("Rukka", "Finland", "123-456");
 			manufacturerRepository.save(m1);
 
-			productRepository.save(new Product("Tuote", "Koiran tuote", "Vaate", "Punainen", "S", 50.00, m1));
-		};
+			productRepository.save(new Product("Ulkoilutakki", "Lämmin takki talviulkoilulle", "Vaate", "Sininen", "S", 50.00, m1));
 
+};
 }
 }

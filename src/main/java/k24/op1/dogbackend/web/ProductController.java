@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import k24.op1.dogbackend.domain.ManufacturerRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,8 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private ManufacturerRepository manufacturerRepository;
 
     @GetMapping("/dogstore")
     public String showDogStore(Model model) {
@@ -32,6 +35,7 @@ public class ProductController {
     @GetMapping("/addproduct")
     public String addProductForm(Model model) {
         model.addAttribute("product", new Product());
+        model.addAttribute("manufacturers", manufacturerRepository.findAll());
         return "addproduct";
     }
 
@@ -53,8 +57,9 @@ public class ProductController {
     public String editProduct(@PathVariable("id") Long id, Model model) {
         if (id != null) {
             Product product = productRepository.findById(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
             model.addAttribute("product", product);
+            model.addAttribute("manufacturers", manufacturerRepository.findAll());
         }
         return "editproduct";
     }
