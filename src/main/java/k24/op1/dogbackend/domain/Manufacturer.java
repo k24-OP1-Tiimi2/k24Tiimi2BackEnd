@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Manufacturer {
@@ -17,8 +18,11 @@ public class Manufacturer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "Name is required")
     private String name;
+    @NotBlank(message = "Country is required")
     private String country;
+    @NotBlank(message = "Businessid is required")
     private String businessid;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")

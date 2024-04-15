@@ -8,6 +8,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Product {
@@ -15,11 +17,17 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "Name is required")
     private String name;
+    @NotBlank(message = "Description is required")
     private String description;
+    @NotBlank(message = "Type is required")
     private String type;
+    @NotBlank(message = "Color is required")
     private String color;
+    @NotBlank(message = "Size is required")
     private String size;
+    @NotNull(message = "Price is required")
     private double price;
 
     @ManyToOne
