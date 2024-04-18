@@ -25,9 +25,9 @@
     <input type="text" class="form-control" th:field="*{businessid}">
     <div th:if="${#fields.hasErrors('businessid')}" th:errors="*{businessid}" class="alert alert-danger"></div>
     </div>
+    <br />
     <button class="btn btn-success" type="submit">Add Manufacturer</button>
 </form>
-
 <a class="btn btn-danger" href="/productlist">Cancel</a>
 
 </body>

@@ -28,7 +28,11 @@ public class DogbackendApplication {
 			Manufacturer m2 = new Manufacturer("Martta", "Finland", "IVE-141");
 			manufacturerRepository.save(m2);
 
-			productRepository.save(new Product("Ulkoilutakki", "Lämmin takki talviulkoilulle", "Vaate", "Sininen", "S", 50.00, m1));
+			productRepository.save(new Product("Ulkoilutakki", "Lämmin takki talviulkoilulle", "Takki", "Sininen", "S", 50.00, m1));
+			Product p1 = new Product("Sadetakki", "Sateen kestävä takki", "Takki", "Punainen", "S", 20.00, m2);
+			productRepository.save(p1);
+			Product p2 = new Product("T-Paita", "Kevyt paita", "Paita", "Oranssi", "M", 15.00, m2);
+			productRepository.save(p2);
 
 };
 }

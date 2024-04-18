@@ -34,10 +34,10 @@
             <option th:each="manufacturer: ${manufacturers}" th:value="${manufacturer.id}" th:text="${manufacturer.name}"></option>
         </select>
 <br />
-<input type="submit" value="Save Product"></input>
+<input class="btn btn-success" type="submit" value="Save Product"></input>
 
 
-<button onclick="window.location.href='/manufacturerlist'">Back to the Store</button>
+<button class="btn btn-danger" onclick="window.location.href='/manufacturerlist'">Cancel</button>
 
 
 </form>

@@ -46,4 +46,8 @@ public class RestController {
     public @ResponseBody Optional<Manufacturer> getManufacturerByIdRest(@PathVariable("id") Long id) {
         return ManufacturerRepository.findById(id);
     }
+    @RequestMapping(value = "/products/jackets", method = RequestMethod.GET)
+    public @ResponseBody List<Product> getJackets() {
+        return ProductRepository.findByType("Takki");
+    }
 }
