@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Product {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -105,6 +105,5 @@ public class Product {
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
-    
-    }
 
+}

@@ -57,7 +57,7 @@ public class ProductController {
     public String editProduct(@PathVariable("id") Long id, Model model) {
         if (id != null) {
             Product product = productRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
             model.addAttribute("product", product);
             model.addAttribute("manufacturers", manufacturerRepository.findAll());
         }
@@ -65,7 +65,7 @@ public class ProductController {
     }
 
     @GetMapping("/orderlist")
-    public String showOrderList(Model model){
+    public String showOrderList(Model model) {
         model.addAttribute("orders", productRepository.findAll());
         return "orderlist";
     }
