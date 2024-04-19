@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Add Manufacturer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 
 <h2>Add Manufacturer</h2>
 
 <form th:action="@{/addmanufacturer}" th:object="${manufacturer}" method="post">
-    
-    <label for="name">Name:</label>
-    <input type="text" id="name" th:field="*{name}" required>
-    <br>
-    
-    <label for="country">Country:</label>
-    <input type="text" id="country" th:field="*{country}" required>
-    <br>
-    
-    <label for="businessid">business ID:</label>
-    <input type="text" id="businessid" th:field="*{businessid}" required>
-    <br>
-
-    <button type="submit">Add Manufacturer</button>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" th:field="*{name}">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger"></div>
+    </div>
+    <div class="form-group">
+    <label for="description">Country:</label>
+    <input type="text" class="form-control" th:field="*{country}">
+    <div th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="alert alert-danger"></div>
+    </div>
+    <div class="form-group">
+    <label for="type">Business ID:</label>
+    <input type="text" class="form-control" th:field="*{businessid}">
+    <div th:if="${#fields.hasErrors('businessid')}" th:errors="*{businessid}" class="alert alert-danger"></div>
+    </div>
+    <br />
+    <button class="btn btn-success" type="submit">Add Manufacturer</button>
 </form>
-
-<a href="/productlist">Back to the manufacturer list</a>
+<a class="btn btn-danger" href="/productlist">Cancel</a>
 
 </body>
 </html>

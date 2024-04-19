@@ -12,6 +12,24 @@
     <header>
         <h1>Manufacturer list</h1>
     </header>
+    <form th:action="@{/search}" method="get">
+        <div class="form-group">
+            <label for="search">Search Manufacturers:</label>
+            <input type="text" id="search" class="form-control" name="searchTerm" aria-label="Search Bar" required>
+        </div>
+        <div class="form-group">
+            <label for="searchBy">Search By:</label>
+            <select class="form-control" id="searchBy" name="searchBy">
+                <option value="all">All</option> 
+                <option value="name">Name</option>
+                <option value="country">Country</option>
+                <option value="businessid">Business ID</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="/manufacturerlist" class="btn btn-secondary">Reset</a>
+    </form>
+    
     <table class="table table-striped">
         <tr>
             <th>Id</th>

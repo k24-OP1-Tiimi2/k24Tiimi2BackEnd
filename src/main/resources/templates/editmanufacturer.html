@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
     <title>Edit Product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
 
@@ -18,12 +19,11 @@
 
     <label>Business ID:</label>
     <input type="text" th:field="*{businessid}" required/><br/>
+<br />
+<input class="btn btn-success" type="submit" value="Save Manufacturer"></input>
 
 
-<input type="submit" value="Save Manufacturer"></input>
-
-
-<button onclick="window.location.href='/manufacturerlist'">Back to the manufacturerlist</button>
+<button class="btn btn-danger" onclick="window.location.href='/manufacturerlist'">Cancel</button>
 
 
 </form>

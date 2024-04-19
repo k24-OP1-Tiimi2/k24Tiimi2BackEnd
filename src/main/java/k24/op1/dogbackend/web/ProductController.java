@@ -3,14 +3,16 @@ package k24.op1.dogbackend.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import k24.op1.dogbackend.domain.ManufacturerRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class ProductController {
@@ -40,8 +42,12 @@ public class ProductController {
     }
 
     @PostMapping("/addproduct")
-    public String addProduct(@ModelAttribute Product newProduct) {
-        productRepository.save(newProduct);
+    public String addProduct(@Valid Product product, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("manufacturers", manufacturerRepository.findAll());
+            return "addproduct";
+        }
+        productRepository.save(product);
         return "redirect:/productlist";
     }
 

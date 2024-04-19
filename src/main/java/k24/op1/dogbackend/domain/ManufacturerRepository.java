@@ -7,4 +7,11 @@ import org.springframework.data.repository.query.Param;
 
 public interface ManufacturerRepository extends CrudRepository<Manufacturer, Long> {
     List<Manufacturer> findByName(@Param("name") String name);
+
+    List<Manufacturer> findByNameContainingIgnoreCase(String name);
+
+    List<Manufacturer> findByCountryContainingIgnoreCase(String country);
+
+    List<Manufacturer> findByBusinessidContainingIgnoreCase(String businessid);
+
 }
