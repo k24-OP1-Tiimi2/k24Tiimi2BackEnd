@@ -12,6 +12,25 @@
     <header>
         <h1>ProductList</h1>
     </header>
+    <form th:action="@{/searchproducts}" method="get">
+        <div class="form-group">
+            <label for="search">Search Products:</label>
+            <input type="text" id="search" class="form-control" name="searchTerm" aria-label="Search Bar" required>
+        </div>
+        <div class="form-group">
+            <label for="searchBy">Search By:</label>
+            <select class="form-control" id="searchBy" name="searchBy">
+                <option value="all">All</option>
+                <option value="name">Name</option>
+                <option value="description">Description</option>
+                <option value="type">Type</option>
+                <option value="color">Color</option>
+                <option value="size">Size</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="/productlist" class="btn btn-secondary">Reset</a>
+    </form>
     <table class="table table-striped">
         <tr>
             <th>Name</th>

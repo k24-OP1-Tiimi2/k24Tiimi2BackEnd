@@ -30,7 +30,7 @@ public class RestController {
     @Autowired
     private ManufacturerRepository ManufacturerRepository;
 
-    //
+    // haku manufacturer listaan.
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String searchManufacturers(@RequestParam("searchTerm") String searchTerm,
             @RequestParam("searchBy") String searchBy,
@@ -59,6 +59,45 @@ public class RestController {
         }
         model.addAttribute("manufacturers", manufacturers);
         return "manufacturerlist";
+    }
+
+    // haku products
+    @RequestMapping(value = "/searchproducts", method = RequestMethod.GET)
+    public String searchProducts(@RequestParam("searchTerm") String searchTerm,
+            @RequestParam("searchBy") String searchBy,
+            Model model) {
+        List<Product> products;
+        if (searchBy.equals("name")) {
+            products = ProductRepository.findByNameContainingIgnoreCase(searchTerm);
+        } else if (searchBy.equals("description")) {
+            products = ProductRepository.findByDescriptionContainingIgnoreCase(searchTerm);
+        } else if (searchBy.equals("type")) {
+            products = ProductRepository.findByTypeContainingIgnoreCase(searchTerm);
+        } else if (searchBy.equals("color")) {
+            products = ProductRepository.findByColorContainingIgnoreCase(searchTerm);
+        } else if (searchBy.equals("size")) {
+            products = ProductRepository.findBySizeContainingIgnoreCase(searchTerm);
+        } else if (searchBy.equals("all")) {
+            // Etsitään kaikki kategoriat
+            List<Product> byName = ProductRepository.findByNameContainingIgnoreCase(searchTerm);
+            List<Product> byDescription = ProductRepository.findByDescriptionContainingIgnoreCase(searchTerm);
+            List<Product> byType = ProductRepository.findByTypeContainingIgnoreCase(searchTerm);
+            List<Product> byColor = ProductRepository.findByColorContainingIgnoreCase(searchTerm);
+            List<Product> bySize = ProductRepository.findBySizeContainingIgnoreCase(searchTerm);
+
+            // Yhdistetään tulokset
+            products = new ArrayList<>();
+            products.addAll(byName);
+            products.addAll(byDescription);
+            products.addAll(byType);
+            products.addAll(byColor);
+            products.addAll(bySize);
+        } else {
+            // Name defaultiksi
+            products = ProductRepository.findByNameContainingIgnoreCase(searchTerm);
+        }
+        model.addAttribute("products", products);
+        return "productlist";
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
