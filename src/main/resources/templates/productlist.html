@@ -15,7 +15,6 @@
     <table class="table table-striped">
         <tr>
             <th>Name</th>
-            <th>Description</th>
             <th>Type</th>
             <th>Color</th>
             <th>Size</th>
@@ -26,8 +25,7 @@
         </tr>
         <tr th:each="product : ${products}">
             <td th:text="${product.name}"></td>
-            <td th:text="${product.description}"></td>
-            <td th:text="${product.type}"></td>
+            <td th:text="${product.type.type_name}"></td>
             <td th:text="${product.color}"></td>
             <td th:text="${product.size}"></td>
             <td th:text="${product.price}"></td>

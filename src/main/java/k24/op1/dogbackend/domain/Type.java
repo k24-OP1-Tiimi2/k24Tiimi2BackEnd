@@ -13,46 +13,37 @@ import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class Manufacturer {
-
+public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotBlank(message = "Name is required")
-    private String name;
+    @NotBlank(message = "Type_name is required")
+    private String type_name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
-    @JsonIgnoreProperties("manufacturer")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
+    @JsonIgnoreProperties("type")
     private List<Product> products;
 
-    public Manufacturer(String name) {
-        this.name = name;
+    public Type(String type_name) {
+        this.type_name = type_name;
     }
-
-    public Manufacturer() {
+    public Type() {
 
     }
-
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
-    public String getName() {
-        return name;
+    public String getType_name() {
+        return type_name;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setType_name(String type_name) {
+        this.type_name = type_name;
     }
+    
 
-    @Override
-    public String toString() {
-        return "Manufacturer [id=" + id + ", name=" + name + "]";
-    }
     
     
 }

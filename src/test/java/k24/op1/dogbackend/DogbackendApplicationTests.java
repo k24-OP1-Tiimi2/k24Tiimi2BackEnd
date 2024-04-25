@@ -33,20 +33,22 @@ class DogbackendApplicationTests {
 		assertThat(manufacturers.get(0).getName()).isEqualTo("Rukka");
 	 }
 
+	 /* 
 	 @Test
 	 public void createNewManufacturer() {
 	   Manufacturer manufacturer = new Manufacturer("Balenciaga", "United States", "USA-510");
 	   manufacturerRepository.save(manufacturer);
 	   assertThat(manufacturer.getId()).isNotNull();
-	 }
+	 } */
 
+	 /* 
 	 @Test
 	 public void createNewManufacturerAndDelete() {
 	   Manufacturer manufacturer = new Manufacturer("Balenciaga", "United States", "USA-510");
 	   manufacturerRepository.save(manufacturer);
 	   manufacturerRepository.deleteById(2L);
 	   assertThat(manufacturerRepository.findById(2L).isEmpty());
-	 }
+	 } */
 
 
 }

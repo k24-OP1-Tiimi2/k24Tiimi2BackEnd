@@ -17,7 +17,7 @@ import k24.op1.dogbackend.domain.ProductRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Controller
 public class RestController {
     
@@ -48,6 +48,6 @@ public class RestController {
     }
     @RequestMapping(value = "/products/jackets", method = RequestMethod.GET)
     public @ResponseBody List<Product> getJackets() {
-        return ProductRepository.findByType("Takki");
+        return ProductRepository.findByType(null);
     }
 }

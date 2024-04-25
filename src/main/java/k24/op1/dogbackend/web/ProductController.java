@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import k24.op1.dogbackend.domain.ManufacturerRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
+import k24.op1.dogbackend.domain.TypeRepository;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +23,9 @@ public class ProductController {
     private ProductRepository productRepository;
     @Autowired
     private ManufacturerRepository manufacturerRepository;
+
+    @Autowired
+    private TypeRepository typeRepository;
 
     @GetMapping("/dogstore")
     public String showDogStore(Model model) {
@@ -38,6 +43,7 @@ public class ProductController {
     public String addProductForm(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
+        model.addAttribute("types", typeRepository.findAll());
         return "addproduct";
     }
 
@@ -45,6 +51,7 @@ public class ProductController {
     public String addProduct(@Valid Product product, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("manufacturers", manufacturerRepository.findAll());
+            model.addAttribute("types", typeRepository.findAll());
             return "addproduct";
         }
         productRepository.save(product);
@@ -66,6 +73,7 @@ public class ProductController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid product Id: " + id));
             model.addAttribute("product", product);
             model.addAttribute("manufacturers", manufacturerRepository.findAll());
+            model.addAttribute("types", typeRepository.findAll());
         }
         return "editproduct";
     }

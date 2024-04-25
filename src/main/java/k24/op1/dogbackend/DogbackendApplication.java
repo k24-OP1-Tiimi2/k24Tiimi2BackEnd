@@ -9,6 +9,8 @@ import k24.op1.dogbackend.domain.Manufacturer;
 import k24.op1.dogbackend.domain.ManufacturerRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
+import k24.op1.dogbackend.domain.Type;
+import k24.op1.dogbackend.domain.TypeRepository;
 
 @SpringBootApplication
 public class DogbackendApplication {
@@ -19,20 +21,28 @@ public class DogbackendApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ProductRepository productRepository, ManufacturerRepository manufacturerRepository) {
+	public CommandLineRunner initData(ProductRepository productRepository, ManufacturerRepository manufacturerRepository, TypeRepository typeRepository) {
 		return (args) -> {
 
-			Manufacturer m1 = new Manufacturer("Rukka", "Finland", "123-456");
-			manufacturerRepository.save(m1);
+			Manufacturer rukka = new Manufacturer("Rukka");
+			manufacturerRepository.save(rukka);
 
-			Manufacturer m2 = new Manufacturer("Martta", "Finland", "IVE-141");
-			manufacturerRepository.save(m2);
+			Manufacturer martta = new Manufacturer("Martta");
+			manufacturerRepository.save(martta);
 
-			productRepository.save(new Product("Ulkoilutakki", "Lämmin takki talviulkoilulle", "Takki", "Sininen", "S", 50.00, m1));
-			Product p1 = new Product("Sadetakki", "Sateen kestävä takki", "Takki", "Punainen", "S", 20.00, m2);
+			Manufacturer pomppa = new Manufacturer("Pomppa");
+			manufacturerRepository.save(pomppa);
+
+			Manufacturer hurtta = new Manufacturer("Hurtta");
+			manufacturerRepository.save(hurtta);
+
+			Type vaate = new Type("Vaate");
+			typeRepository.save(vaate);
+			Type lelu = new Type("Lelu");
+			typeRepository.save(lelu);
+
+			Product p1 = new Product("Ulkoilutakki", "Sininen", "S", 15.00, vaate, rukka);
 			productRepository.save(p1);
-			Product p2 = new Product("T-Paita", "Kevyt paita", "Paita", "Oranssi", "M", 15.00, m2);
-			productRepository.save(p2);
 
 };
 }

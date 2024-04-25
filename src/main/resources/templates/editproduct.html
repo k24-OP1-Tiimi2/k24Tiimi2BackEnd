@@ -14,11 +14,10 @@
     <label>Name:</label>
     <input type="text" th:field="*{name}" required/><br/>
 
-    <label>Description:</label>
-    <input type="text" th:field="*{description}" required/><br/>
-
     <label>Type:</label>
-    <input type="text" th:field="*{type}" required/><br/>
+        <select id="type" th:field="*{type}" class="form-control">
+            <option th:each="type: ${types}" th:value="${type.id}" th:text="${type.type_name}"></option>
+        </select>
 
     <label>Color:</label>
     <input type="text" th:field="*{color}" required/><br/>
