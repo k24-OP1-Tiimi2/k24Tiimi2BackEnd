@@ -12,6 +12,24 @@
     <header>
         <h1>Manufacturer list</h1>
     </header>
+    <form th:action="@{/search}" method="get">
+        <div class="form-group">
+            <label for="search">Search Manufacturers:</label>
+            <input type="text" id="search" class="form-control" name="searchTerm" aria-label="Search Bar" required>
+        </div>
+        <div class="form-group">
+            <label for="searchBy">Search By:</label>
+            <select class="form-control" id="searchBy" name="searchBy">
+                <option value="all">All</option> 
+                <option value="name">Name</option>
+                <option value="country">Country</option>
+                <option value="businessid">Business ID</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="/manufacturerlist" class="btn btn-secondary">Reset</a>
+    </form>
+    
     <table class="table table-striped">
         <tr>
             <th>Id</th>
@@ -23,8 +41,9 @@
             <td th:text="${manufacturer.id}"></td>
             <td th:text="${manufacturer.name}"></td>
 
+            <td><a class="btn btn-secondary" th:href="@{manufacturer/{id}/products(id = ${manufacturer.id})}">View Products</a></td>
             <td><a class="btn btn-danger" th:href="@{/deletemanufacturer/{id}(id = ${manufacturer.id})}" onClick="return confirm('Are you sure you want to delete this manufacturer?')">Delete</a></td>
-            <td><a class="btn btn-secondary" th:href="@{/editmanufacturer/{id}(id = ${manufacturer.id})}">Edit</a></td>
+            <td><a class="btn btn-primary" th:href="@{/editmanufacturer/{id}(id = ${manufacturer.id})}">Edit</a></td>
         </tr>
     </table>
 

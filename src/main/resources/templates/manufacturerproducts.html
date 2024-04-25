@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Manufacturer products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-between align-items-center mb-4">
+        <div class="col-md-4">
+            <h1 th:text="${manufacturer.name}">Manufacturers products</h1>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${manufacturer.products}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.type.type_name}"></td>
+                <td th:text="${product.color}"></td>
+                <td th:text="${product.size}"></td>
+                <td th:text="${product.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row justify-content-between">
+        <div class="col-md-4 text-right">
+            <a class="btn btn-info" th:href="@{/dogstore}">Main page</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

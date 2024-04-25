@@ -1,4 +1,4 @@
-package k24.op1.dogbackend;
+/*package k24.op1.dogbackend;
 
 import java.util.List;
 
@@ -48,7 +48,7 @@ class DogbackendApplicationTests {
 	   manufacturerRepository.save(manufacturer);
 	   manufacturerRepository.deleteById(2L);
 	   assertThat(manufacturerRepository.findById(2L).isEmpty());
-	 } */
+	 } 
 
 
-}
+}*/

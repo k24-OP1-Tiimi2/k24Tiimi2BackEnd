@@ -43,7 +43,9 @@ public class DogbackendApplication {
 
 			Product p1 = new Product("Ulkoilutakki", "Sininen", "S", 15.00, vaate, rukka);
 			productRepository.save(p1);
+			Product p2 = new Product("Vinkulelu", "Keltainen", "S", 45.00, lelu, martta);
+			productRepository.save(p2);
 
-};
-}
+		};
+	}
 }

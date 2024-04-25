@@ -49,10 +49,14 @@ public class Manufacturer {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Manufacturer [id=" + id + ", name=" + name + "]";
+    public List<Product> getProducts() {
+        return products;
     }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+    
     
     
 }

@@ -15,7 +15,6 @@ import k24.op1.dogbackend.domain.ManufacturerRepository;
 @Controller
 public class ManufacturerController {
 
-
     @Autowired
     private ManufacturerRepository manufacturerRepository;
 
@@ -52,9 +51,17 @@ public class ManufacturerController {
     public String editManufacturer(@PathVariable("id") Long id, Model model) {
         if (id != null) {
             Manufacturer manufacturer = manufacturerRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Invalid manufacturer Id: " + id));
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid manufacturer Id: " + id));
             model.addAttribute("manufacturer", manufacturer);
         }
         return "editmanufacturer";
     }
+    @GetMapping("/manufacturer/{id}/products")
+    public String viewManufacturerProducts(@PathVariable("id") Long id, Model model) {
+        Manufacturer manufacturer = manufacturerRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid manufacturer Id: " + id));
+        model.addAttribute("manufacturer", manufacturer);
+        model.addAttribute("products", manufacturer.getProducts());
+        return "manufacturerproducts";
+}
 }

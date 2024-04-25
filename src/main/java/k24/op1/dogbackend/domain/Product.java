@@ -13,7 +13,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Product {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -94,4 +94,3 @@ public class Product {
         this.manufacturer = manufacturer;
     }
 }
-
