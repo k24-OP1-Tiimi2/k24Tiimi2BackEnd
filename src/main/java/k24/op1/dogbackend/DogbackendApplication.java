@@ -41,10 +41,16 @@ public class DogbackendApplication {
 			Type lelu = new Type("Lelu");
 			typeRepository.save(lelu);
 
-			Product p1 = new Product("Ulkoilutakki", "Sininen", "S", 15.00, vaate, rukka);
+			Product p1 = new Product("Ulkoilutakki", "Sininen", "S", 15.00, 25, vaate, rukka);
 			productRepository.save(p1);
-			Product p2 = new Product("Vinkulelu", "Keltainen", "S", 45.00, lelu, martta);
+			Product p2 = new Product("Vinkulelu", "Keltainen", "S", 5.00, 25, lelu, martta);
 			productRepository.save(p2);
+			Product p3 = new Product("Sadetakki", "Punainen", "M", 25.00, 100, vaate, pomppa);
+			productRepository.save(p3);
+			Product p4 = new Product("T-paita", "Valkoinen", "M", 10.00, 50, vaate, hurtta);
+			productRepository.save(p4);
+			Product p5 = new Product("Purulelu", "Sini-valkoinen", "M", 7.50, 50, lelu, rukka);
+			productRepository.save(p5);
 
 		};
 	}

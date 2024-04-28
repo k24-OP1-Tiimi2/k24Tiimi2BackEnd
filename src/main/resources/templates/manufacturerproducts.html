@@ -22,6 +22,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
                 <th>Color</th>
                 <th>Size</th>
                 <th>Price</th>
+                <th>Units_in_stock</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
                 <td th:text="${product.color}"></td>
                 <td th:text="${product.size}"></td>
                 <td th:text="${product.price}"></td>
+                <td th:text="${product.units_in_stock}"></td>
             </tr>
         </tbody>
     </table>
@@ -38,6 +40,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <div class="row justify-content-between">
         <div class="col-md-4 text-right">
             <a class="btn btn-info" th:href="@{/dogstore}">Main page</a>
+            <a class="btn btn-info" th:href="@{/manufacturerlist}">Back to Manufacturers</a>
         </div>
     </div>
 </div>

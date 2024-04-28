@@ -30,6 +30,9 @@ public class Product {
     @NotNull(message = "Price is required")
     private double price;
 
+    @NotNull(message = "Units_in_stock is required")
+    private int units_in_stock;
+
     @ManyToOne
     @JsonIgnoreProperties("products")
     @JoinColumn(name = "type_id")
@@ -40,11 +43,13 @@ public class Product {
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
-    public Product(String name, String color, String size, double price, Type type, Manufacturer manufacturer) {
+    
+    public Product(String name, String color, String size, double price, int units_in_stock, Type type, Manufacturer manufacturer) {
         this.name = name;
         this.color = color;
         this.size = size;
         this.price = price;
+        this.units_in_stock = units_in_stock;
         this.type = type;
         this.manufacturer = manufacturer;
     }
@@ -81,6 +86,12 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+    public int getUnits_in_stock() {
+        return units_in_stock;
+    }
+    public void setUnits_in_stock(int units_in_stock) {
+        this.units_in_stock = units_in_stock;
+    }
     public Type getType() {
         return type;
     }
@@ -93,4 +104,6 @@ public class Product {
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
+    
+    
 }

@@ -55,11 +55,17 @@ public class RestController {
         return ManufacturerRepository.findById(id);
     }
 
-    /*@RequestMapping(value = "/manufacturers/{id}/products", method = RequestMethod.GET)
-    public @ResponseBody Optional<Manufacturer> getManufacturerProducts(@PathVariable("id") Long id) {
-        return (List<Manufacturer>) ManufacturerRepository.findByProducts(getProductsRest());
+    @RequestMapping(value = "/manufacturers/{id}/products", method = RequestMethod.GET)
+    public @ResponseBody List<Product> getManufacturerProducts(@PathVariable("id") Long id) {
+        Optional<Manufacturer> manufacturerOptional = ManufacturerRepository.findById(id);
+        if (manufacturerOptional.isPresent()) {
+            Manufacturer manufacturer = manufacturerOptional.get();
+            return manufacturer.getProducts();
+        } else {
+            return new ArrayList<>();
+        }
     }
-
+    /* 
     @RequestMapping(value = "/products/jackets", method = RequestMethod.GET)
     public @ResponseBody List<Product> getJackets() {
         return ProductRepository.findByType(null);
