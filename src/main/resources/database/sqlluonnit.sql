@@ -1,6 +1,7 @@
 -- luo manufacturer taulun
 CREATE SEQUENCE product_seq;
 ALTER SEQUENCE manufacturer_SEQ INCREMENT BY 50;
+CREATE SEQUENCE manufacturer_seq START 1;
 
 
 CREATE TABLE Manufacturer (
