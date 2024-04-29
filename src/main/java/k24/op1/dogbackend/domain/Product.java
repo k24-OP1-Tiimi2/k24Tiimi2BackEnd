@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -15,7 +16,8 @@ import jakarta.validation.constraints.NotNull;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq_generator")
+    @SequenceGenerator(name = "product_seq_generator", sequenceName = "product_SEQ", allocationSize = 1)
     private Long id;
 
     @NotBlank(message = "Name is required")
@@ -43,8 +45,8 @@ public class Product {
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
-    
-    public Product(String name, String color, String size, double price, int units_in_stock, Type type, Manufacturer manufacturer) {
+    public Product(String name, String color, String size, double price, int units_in_stock, Type type,
+            Manufacturer manufacturer) {
         this.name = name;
         this.color = color;
         this.size = size;
@@ -53,57 +55,73 @@ public class Product {
         this.type = type;
         this.manufacturer = manufacturer;
     }
+
     public Product() {
 
     }
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getColor() {
         return color;
     }
+
     public void setColor(String color) {
         this.color = color;
     }
+
     public String getSize() {
         return size;
     }
+
     public void setSize(String size) {
         this.size = size;
     }
+
     public double getPrice() {
         return price;
     }
+
     public void setPrice(double price) {
         this.price = price;
     }
+
     public int getUnits_in_stock() {
         return units_in_stock;
     }
+
     public void setUnits_in_stock(int units_in_stock) {
         this.units_in_stock = units_in_stock;
     }
+
     public Type getType() {
         return type;
     }
+
     public void setType(Type type) {
         this.type = type;
     }
+
     public Manufacturer getManufacturer() {
         return manufacturer;
     }
+
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
-    
-    
+
 }

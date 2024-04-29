@@ -19,7 +19,7 @@ public class DogbackendApplication {
 
 		SpringApplication.run(DogbackendApplication.class, args);
 	}
-
+/* 
 	@Bean
 	public CommandLineRunner initData(ProductRepository productRepository, ManufacturerRepository manufacturerRepository, TypeRepository typeRepository) {
 		return (args) -> {
@@ -53,5 +53,5 @@ public class DogbackendApplication {
 			productRepository.save(p5);
 
 		};
-	}
+	}*/
 }
