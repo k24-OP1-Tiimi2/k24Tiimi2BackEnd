@@ -1,6 +1,6 @@
 -- luo manufacturer taulun
-CREATE SEQUENCE manufacturer_seq START 1;
-
+CREATE SEQUENCE product_seq;
+ALTER SEQUENCE manufacturer_SEQ INCREMENT BY 50;
 
 
 CREATE TABLE Manufacturer (
@@ -9,6 +9,12 @@ CREATE TABLE Manufacturer (
 );
 
 
+-- lisää dataa tauluuun
+INSERT INTO Manufacturer (name) VALUES 
+    ('Rukka'),
+    ('Martta'),
+    ('Pomppa'),
+    ('Hurtta');
 
 
 
@@ -20,7 +26,10 @@ CREATE TABLE Type (
 );
 
 
-
+-- lisää dataa tauluun
+INSERT INTO Type (type_name) VALUES 
+    ('Vaate'),
+    ('Lelu');
 
 
 
@@ -39,4 +48,12 @@ CREATE TABLE Product (
     FOREIGN KEY (type_id) REFERENCES type(id),
     FOREIGN KEY (manufacturer_id) REFERENCES manufacturer(id)
 );
+
+-- lisää dataa tauluun§
+INSERT INTO Product (name, color, size, price, units_in_stock, type_id, manufacturer_id) VALUES 
+    ('Ulkoilutakki', 'Sininen', 'S', 15.00, 25, 1, 1),
+    ('Vinkulelu', 'Keltainen', 'S', 5.00, 25, 2, 2),
+    ('Sadetakki', 'Punainen', 'M', 25.00, 100, 1, 3),
+    ('T-paita', 'Valkoinen', 'M', 10.00, 50, 1, 4),
+    ('Purulelu', 'Sini-valkoinen', 'M', 7.50, 50, 2, 1);
 
