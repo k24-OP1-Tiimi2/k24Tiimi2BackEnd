@@ -14,7 +14,6 @@ public class OrderController {
     @PostMapping("/reservations")
     public ResponseEntity<String> createReservation(@RequestBody Order Order) {
         // Logic to save the reservation to a database or perform any other actions
-        // For demonstration purposes, let's just print the reservation details
         System.out.println("Received reservation: " + Order);
         return ResponseEntity.ok("Reservation received successfully");
     }
