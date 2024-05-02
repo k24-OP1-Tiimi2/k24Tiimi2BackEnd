@@ -55,19 +55,18 @@
  			<groupId>org.springframework.boot</groupId>
  			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-<!--jos ei toimi tolla jdbcConnection filun kanssa niin tuo alempi depe takaisin-->
-	<!--	<dependency>
+
+	<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
-		</dependency>-->
+		</dependency>
 
-<!--laita alempi depe kommentteihin jos ei toimi postgresql kanssa-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
-		</dependency> 
+		</dependency> -->
 	</dependencies>
 	<build>
 		<plugins>
