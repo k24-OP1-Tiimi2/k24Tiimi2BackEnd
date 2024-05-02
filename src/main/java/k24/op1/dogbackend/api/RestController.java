@@ -16,8 +16,6 @@ import k24.op1.dogbackend.domain.Manufacturer;
 import k24.op1.dogbackend.domain.ManufacturerRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
-import k24.op1.dogbackend.domain.Type;
-import k24.op1.dogbackend.domain.TypeRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,9 +29,6 @@ public class RestController {
 
     @Autowired
     private ManufacturerRepository ManufacturerRepository;
-    
-    @Autowired
-    private TypeRepository typeRepository;
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public @ResponseBody List<Product> getProductsRest() {
@@ -65,13 +60,14 @@ public class RestController {
             return new ArrayList<>();
         }
     }
-    /* 
-    @RequestMapping(value = "/products/jackets", method = RequestMethod.GET)
-    public @ResponseBody List<Product> getJackets() {
-        return ProductRepository.findByType(null);
-    } */
+    /*
+     * @RequestMapping(value = "/products/jackets", method = RequestMethod.GET)
+     * public @ResponseBody List<Product> getJackets() {
+     * return ProductRepository.findByType(null);
+     * }
+     */
 
-     // haku manufacturer listaan.
+    // haku manufacturer listaan.
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String searchManufacturers(@RequestParam("searchTerm") String searchTerm,
             @RequestParam("searchBy") String searchBy,
@@ -123,5 +119,6 @@ public class RestController {
         }
         model.addAttribute("products", products);
         return "productlist";
-    } 
-} 
+    }
+
+}

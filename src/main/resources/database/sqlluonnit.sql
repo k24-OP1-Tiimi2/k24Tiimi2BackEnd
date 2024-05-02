@@ -1,60 +1,39 @@
--- luo manufacturer taulun
-CREATE SEQUENCE product_seq;
-ALTER SEQUENCE manufacturer_SEQ INCREMENT BY 50;
-CREATE SEQUENCE manufacturer_seq START 1;
+-- Drop the existing manufacturer_seq sequence
+DROP SEQUENCE IF EXISTS manufacturer_seq;
 
+-- Create a new manufacturer_seq sequence with an increment of 1
+CREATE SEQUENCE IF EXISTS manufacturer_seq START 1;
 
+-- Update the increment size of the manufacturer_seq sequence to 1
+ALTER SEQUENCE IF EXISTS manufacturer_seq INCREMENT BY 1;
+
+-- Drop the existing Manufacturer table
+DROP TABLE IF EXISTS Manufacturer;
+
+-- Create the Manufacturer table
 CREATE TABLE Manufacturer (
-    id SERIAL PRIMARY KEY,
+    id BIGINT PRIMARY KEY DEFAULT NEXTVAL('manufacturer_seq'),
     name VARCHAR(255) NOT NULL
 );
 
-
--- lisää dataa tauluuun
+-- Insert data into the Manufacturer table
 INSERT INTO Manufacturer (name) VALUES 
     ('Rukka'),
     ('Martta'),
     ('Pomppa'),
     ('Hurtta');
 
+-- Now proceed with creating other tables and inserting data
 
-
-
--- luo type taulun
-CREATE TABLE Type (
-    id SERIAL PRIMARY KEY,
-    type_name VARCHAR(255) NOT NULL
-);
-
-
--- lisää dataa tauluun
 INSERT INTO Type (type_name) VALUES 
     ('Vaate'),
     ('Lelu');
 
-
-
-
--- luo producti taulun
-CREATE TABLE Product (
-    --tää numeroi automaattisesti  
+   CREATE TABLE app_user (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    color VARCHAR(255) NOT NULL,
-    size VARCHAR(255) NOT NULL,
-    price NUMERIC(10, 2) NOT NULL,
-    units_in_stock INT NOT NULL,
-    type_id BIGINT,
-    manufacturer_id BIGINT,
-    FOREIGN KEY (type_id) REFERENCES type(id),
-    FOREIGN KEY (manufacturer_id) REFERENCES manufacturer(id)
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    role VARCHAR(20) NOT NULL
 );
 
--- lisää dataa tauluun§
-INSERT INTO Product (name, color, size, price, units_in_stock, type_id, manufacturer_id) VALUES 
-    ('Ulkoilutakki', 'Sininen', 'S', 15.00, 25, 1, 1),
-    ('Vinkulelu', 'Keltainen', 'S', 5.00, 25, 2, 2),
-    ('Sadetakki', 'Punainen', 'M', 25.00, 100, 1, 3),
-    ('T-paita', 'Valkoinen', 'M', 10.00, 50, 1, 4),
-    ('Purulelu', 'Sini-valkoinen', 'M', 7.50, 50, 2, 1);
 

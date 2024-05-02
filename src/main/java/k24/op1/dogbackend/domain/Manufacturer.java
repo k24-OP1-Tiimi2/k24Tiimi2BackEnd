@@ -10,15 +10,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@SequenceGenerator(name = "manufacturer_seq", sequenceName = "manufacturer_seq", allocationSize = 1)
-public class Manufacturer {
 
+/* */
+public class Manufacturer {
+    /*
+     * Tämä @GeneratedValue(strategy = GenerationType.IDENTITY)
+     * Korvaa; @SequenceGenerator(name = "manufacturer_seq", sequenceName =
+     * "manufacturer_seq", allocationSize = 1)
+     * Huom. Muutettiin GenerationType.Auto = GenerationType.IDENTITY
+     */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "Name is required")
     private String name;
@@ -58,5 +63,5 @@ public class Manufacturer {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
-    
+
 }
