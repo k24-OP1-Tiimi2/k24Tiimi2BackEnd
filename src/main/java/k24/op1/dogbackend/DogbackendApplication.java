@@ -22,12 +22,14 @@ import org.slf4j.LoggerFactory;
 import k24.op1.dogbackend.domain.ManufacturerRepository;
 import k24.op1.dogbackend.domain.ProductRepository;
 import k24.op1.dogbackend.domain.TypeRepository;
+
+/*Huom. Kommentoitu osia pois
 import k24.op1.dogbackend.domain.AppUser;
 import k24.op1.dogbackend.domain.AppUserRepository;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
+*/
 @SpringBootApplication
 public class DogbackendApplication {
 	private static final Logger log = LoggerFactory.getLogger(DogbackendApplication.class);

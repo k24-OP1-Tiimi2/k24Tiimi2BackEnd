@@ -24,13 +24,16 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(antMatcher("/css/**")).permitAll() // Enable CSS when logged out
+                        .requestMatchers("/dogstore").permitAll() // Allow access to dogstore page for everyone
                         .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login") // login sivu.
                         .defaultSuccessUrl("/dogstore", true) // frontpage uudelleenm ohjaus
                         .permitAll())
                 .logout(logout -> logout
-                        .permitAll());
+                        .logoutUrl("/logout")
+                        .logoutRequestMatcher(antMatcher("/logout"))
+                        .logoutSuccessUrl("/dogstore"));
         return http.build();
     }
 

@@ -19,11 +19,13 @@ public class AppUserController {
         this.appUserService = appUserService;
     }
 
+    // kirjautuminen
     @RequestMapping(value = "/login")
     public String login() {
         return "login";
     }
 
+    // rekisteröint (kesken)
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("appUser", new AppUser());
