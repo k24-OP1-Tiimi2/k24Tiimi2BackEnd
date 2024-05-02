@@ -63,7 +63,7 @@
 		</dependency>
 
 <!--laita alempi depe kommentteihin jos ei toimi postgresql kanssa-->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
