@@ -27,6 +27,7 @@ INSERT INTO Manufacturer (name) VALUES
 
 INSERT INTO Type (type_name) VALUES 
     ('Vaate'),
+    ('Ruoka'),
     ('Lelu');
 
    CREATE TABLE app_user (
