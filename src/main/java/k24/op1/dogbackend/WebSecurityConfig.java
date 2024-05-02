@@ -25,6 +25,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(antMatcher("/css/**")).permitAll() // Enable CSS when logged out
                         .requestMatchers("/dogstore").permitAll() // Allow access to dogstore page for everyone
+                        .requestMatchers("/register").permitAll() // Allow access to dogstore page for everyone
+
                         .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login") // login sivu.
