@@ -1,9 +1,14 @@
 package k24.op1.dogbackend.web;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import k24.op1.dogbackend.domain.Order;
@@ -17,12 +22,15 @@ public class OrderController {
     private OrderRepository orderRepository;
     
     @PostMapping("/reservations")
-    // public ResponseEntity<String> createReservation(@RequestBody Order Order) {
-        // Logic to save the reservation to a database or perform any other actions
-        Order createReservation(@RequestBody Order newOrder) {
-        System.out.println("Received reservation: " + newOrder);
-        return orderRepository.save(newOrder);
-      //  return ResponseEntity.ok("Reservation received successfully");
+    Iterable<Order> createReservations2(@RequestBody List<Order> newOrders) {
+        System.out.println("Received reservations: " + newOrders);
+        return orderRepository.saveAll(newOrders);
     }
-    
+
+
+   @RequestMapping(value = "/reservations", method = RequestMethod.GET)
+    public @ResponseBody List<Order> getProductsRest() {
+        return (List<Order>) orderRepository.findAll();
+    }
+
 }

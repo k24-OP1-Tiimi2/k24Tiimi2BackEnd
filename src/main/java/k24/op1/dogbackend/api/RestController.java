@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import k24.op1.dogbackend.domain.Manufacturer;
 import k24.op1.dogbackend.domain.ManufacturerRepository;
+import k24.op1.dogbackend.domain.Order;
+import k24.op1.dogbackend.domain.OrderRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
 
@@ -30,6 +32,9 @@ public class RestController {
 
     @Autowired
     private ManufacturerRepository ManufacturerRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public @ResponseBody List<Product> getProductsRest() {
@@ -61,6 +66,12 @@ public class RestController {
             return new ArrayList<>();
         }
     }
+
+   /*  @RequestMapping(value = "/reservations", method = RequestMethod.GET)
+    public @ResponseBody List<Order> getReservationsRest() {
+        return (List<Order>) orderRepository.findAll();
+    } */
+
     /*
      * @RequestMapping(value = "/products/jackets", method = RequestMethod.GET)
      * public @ResponseBody List<Product> getJackets() {

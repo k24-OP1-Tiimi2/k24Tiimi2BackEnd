@@ -5,22 +5,38 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq_generator")
-    @SequenceGenerator(name = "product_seq_generator", sequenceName = "product_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
     private String email;
     private String phone;
 
+    public Order() {}
+
+    public Order(String name, String email, String phone) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -28,7 +44,7 @@ public class Order {
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public void setEmail(String email) {
@@ -36,11 +52,12 @@ public class Order {
     }
 
     public String getPhone() {
-        return this.phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
     
 }
