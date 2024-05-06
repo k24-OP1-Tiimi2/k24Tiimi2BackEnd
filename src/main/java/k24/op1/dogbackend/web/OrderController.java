@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import k24.op1.dogbackend.domain.Order;
 
-@CrossOrigin(origins = "http://localhost:5173/products")
+
 @RestController
 public class OrderController {
     
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/reservations")
     public ResponseEntity<String> createReservation(@RequestBody Order Order) {
         // Logic to save the reservation to a database or perform any other actions
