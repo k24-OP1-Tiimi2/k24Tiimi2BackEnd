@@ -67,17 +67,7 @@ public class RestController {
         }
     }
 
-   /*  @RequestMapping(value = "/reservations", method = RequestMethod.GET)
-    public @ResponseBody List<Order> getReservationsRest() {
-        return (List<Order>) orderRepository.findAll();
-    } */
 
-    /*
-     * @RequestMapping(value = "/products/jackets", method = RequestMethod.GET)
-     * public @ResponseBody List<Product> getJackets() {
-     * return ProductRepository.findByType(null);
-     * }
-     */
 
     // haku manufacturer listaan.
     @RequestMapping(value = "/search", method = RequestMethod.GET)
