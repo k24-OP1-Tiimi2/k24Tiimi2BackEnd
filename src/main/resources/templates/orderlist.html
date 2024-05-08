@@ -22,12 +22,12 @@
             <th></th>
         </tr>
         <!-- ! tsekkaa  -->
-        <tr> 
-            <td>1</td>
-            <td>John Doe</td>
-            <td>john.doe@mail.com</td>
-            <td>0451234567</td>
-            <td><a href="/orderlist">Varauksen tiedot</a></td>
+        <tr th:each="order : ${orders}"> 
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.name}"></td>
+            <td th:text="${order.email}"></td>
+            <td th:text="${order.phone}"></td>
+            <td><a href="/orderlist/{id}">Varauksen tiedot</a></td>
         </tr>
     </table>
 
