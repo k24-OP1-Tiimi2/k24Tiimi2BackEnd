@@ -78,10 +78,4 @@ public class ProductController {
         return "editproduct";
     }
 
-    @GetMapping("/orderlist")
-    public String showOrderList(Model model) {
-        model.addAttribute("orders", productRepository.findAll());
-        return "orderlist";
-    }
-
 }
