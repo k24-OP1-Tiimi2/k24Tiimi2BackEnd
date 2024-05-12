@@ -41,6 +41,7 @@ public class Order {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.product = product;
     }
 
     public Long getId() {
@@ -82,4 +83,12 @@ public class Order {
     public void setProducts(List<Product> products) {
         this.products = products;
     }   
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+    
 }
