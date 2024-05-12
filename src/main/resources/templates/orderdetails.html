@@ -6,11 +6,11 @@
 </head>
 <body>
     <h1>Order Details</h1>
-    <!-- Check if the order exists -->
+    <!-- Tarkista löytyykö tilausta -->
     <div th:if="${order != null}">
-        <p><strong>Product:</strong> <span th:text="${order.product}"></span></p>
+        <p><strong>Product:</strong> <a th:text="${order.product}" th:href="${order.product}"></a></p>
     </div>
-    <!-- If the order doesn't exist, display a message -->
+    <!-- Jos ei tilausta löydy, näytä alla oleva -->
     <div th:unless="${order != null}">
         <p>No order details available</p>
     </div>
