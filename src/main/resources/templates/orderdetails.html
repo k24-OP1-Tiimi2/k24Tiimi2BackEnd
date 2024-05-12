@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org%22%3E/
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Order Details</title>
 </head>
 <body>
     <h1>Order Details</h1>
-    <div>
-        <p><strong>Customer name:</strong><span th:text="${order.name}"></span></p>
+    <div th:if="${product}">
         <p><strong>Name:</strong> <span th:text="${product.name}"></span></p>
         <p><strong>Color:</strong> <span th:text="${product.color}"></span></p>
         <p><strong>Size:</strong> <span th:text="${product.size}"></span></p>
         <p><strong>Price:</strong> <span th:text="${product.price}"></span></p>
     </div>
-    <div>
-        <a th:href="/orderlist">Back to Orderlist</a>
+    <div th:unless="${product}">
+        <p>No product details available</p>
     </div>
+
 </body>
 </html>

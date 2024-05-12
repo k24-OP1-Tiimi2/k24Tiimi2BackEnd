@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import k24.op1.dogbackend.domain.OrderRepository;
 
@@ -21,8 +22,8 @@ public class OrderController {
     }
 
     @GetMapping("/orderdetails/{id}")
-    public String showOrderDetails(Model model, Long id){
-        model.addAttribute("orders", orderRepository.findById(id));
+    public String showOrderDetails(Model model, @PathVariable Long id){ // Add @PathVariable annotation
+        model.addAttribute("order", orderRepository.findById(id).orElse(null)); // Use orElse(null) to handle null case
         return "orderdetails";
     }
 
