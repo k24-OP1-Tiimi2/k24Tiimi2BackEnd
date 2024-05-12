@@ -26,8 +26,7 @@ public class OrderController {
     }
 
     @GetMapping("/orderdetails/{id}")
-    public String showOrderDetails(Model model, @PathVariable Long id){ // Add @PathVariable annotation
-        model.addAttribute("product", productRepository.findById(id).orElse(null)); // Use orElse(null) to handle null case
+    public String showOrderDetails(Model model, @PathVariable Long id) {
         model.addAttribute("order", orderRepository.findById(id).orElse(null));
         return "orderdetails";
     }

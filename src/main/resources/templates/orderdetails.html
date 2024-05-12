@@ -6,15 +6,13 @@
 </head>
 <body>
     <h1>Order Details</h1>
-    <div th:if="${product}">
-        <p><strong>Name:</strong> <span th:text="${product.name}"></span></p>
-        <p><strong>Color:</strong> <span th:text="${product.color}"></span></p>
-        <p><strong>Size:</strong> <span th:text="${product.size}"></span></p>
-        <p><strong>Price:</strong> <span th:text="${product.price}"></span></p>
+    <!-- Check if the order exists -->
+    <div th:if="${order != null}">
+        <p><strong>Product:</strong> <span th:text="${order.product}"></span></p>
     </div>
-    <div th:unless="${product}">
+    <!-- If the order doesn't exist, display a message -->
+    <div th:unless="${order != null}">
         <p>No order details available</p>
     </div>
-
 </body>
 </html>
