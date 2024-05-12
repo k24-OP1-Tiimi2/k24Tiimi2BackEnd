@@ -20,4 +20,10 @@ public class OrderController {
         return "orderlist";
     }
 
+    @GetMapping("/orderdetails/{id}")
+    public String showOrderDetails(Model model, Long id){
+        model.addAttribute("orders", orderRepository.findById(id));
+        return "orderdetails";
+    }
+
 }

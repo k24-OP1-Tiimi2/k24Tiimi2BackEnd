@@ -19,8 +19,7 @@
             <td th:text="${order.name}"></td>
             <td th:text="${order.email}"></td>
             <td th:text="${order.phone}"></td>
-            <td><a th:href="${order.product}">Varauksen tiedot</a></td>
-            <td><a href="/orderlist/{id}"></a></td>
+            <td><a th:href="@{/orderdetails/{id}(id = ${order.id})}">Varauksen tiedot</a></td>
         </tr>
     </table>
 
