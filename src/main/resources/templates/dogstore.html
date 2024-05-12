@@ -29,7 +29,6 @@
             <a class="btn btn-light" href="http://localhost:5173/">Webstore</a>
             <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="btn btn-light" href="/productlist">Products</a>
             <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="btn btn-light" href="/manufacturerlist">Manufacturers</a>
-            <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="btn btn-light" href="/customerlist">Customers</a>
             <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="btn btn-light" href="/orderlist">Orders</a>
         </div>
     </div>
