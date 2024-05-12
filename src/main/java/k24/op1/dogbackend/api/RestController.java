@@ -19,9 +19,12 @@ import k24.op1.dogbackend.domain.Order;
 import k24.op1.dogbackend.domain.OrderRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
+import k24.op1.dogbackend.domain.Type;
+import k24.op1.dogbackend.domain.TypeRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @CrossOrigin(origins = "*")
 @Controller
@@ -34,16 +37,22 @@ public class RestController {
     private ManufacturerRepository ManufacturerRepository;
 
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderRepository OrderRepository;
+
+    @Autowired
+    private TypeRepository TypeRepository;
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public @ResponseBody List<Product> getProductsRest() {
         return (List<Product>) ProductRepository.findAll();
     }
-
     @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Product> getProductByIdRest(@PathVariable("id") Long id) {
         return ProductRepository.findById(id);
+    }
+    @RequestMapping(value = "/products", method = RequestMethod.POST)
+    public @ResponseBody Product saveProductRest(@RequestBody Product product) {
+        return ProductRepository.save(product);
     }
 
     @RequestMapping(value = "/manufacturers", method = RequestMethod.GET)
@@ -65,6 +74,22 @@ public class RestController {
         } else {
             return new ArrayList<>();
         }
+    }
+    @RequestMapping(value = "/types", method = RequestMethod.GET)
+    public @ResponseBody List<Type> getTypesRest() {
+        return (List<Type>) TypeRepository.findAll();
+    }
+    @RequestMapping(value = "/types/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<Type> getTypeByIdRest(@PathVariable("id") Long id) {
+        return TypeRepository.findById(id);
+    }
+    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    public @ResponseBody List<Order> getOrdersRest() {
+        return (List<Order>) OrderRepository.findAll();
+    }
+    @RequestMapping(value = "/orders/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<Order> getOrdersByIdRest(@PathVariable("id") Long id) {
+        return OrderRepository.findById(id);
     }
 
 

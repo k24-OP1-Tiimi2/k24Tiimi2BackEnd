@@ -12,18 +12,10 @@ import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;
 import k24.op1.dogbackend.domain.Type;
 import k24.op1.dogbackend.domain.TypeRepository; 
-
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import k24.op1.dogbackend.domain.ManufacturerRepository;
-import k24.op1.dogbackend.domain.ProductRepository;
-import k24.op1.dogbackend.domain.TypeRepository;
 import k24.op1.dogbackend.domain.AppUser;
 import k24.op1.dogbackend.domain.AppUserRepository;
 
@@ -62,24 +54,29 @@ public class DogbackendApplication {
 			 typeRepository.save(vaate);
 			 Type lelu = new Type("Lelu");
 			 typeRepository.save(lelu);
+			 Type ruoka = new Type("Ruoka");
+			 typeRepository.save(ruoka);
 			  
 			 Product p1 = new Product("Ulkoilutakki", "Sininen", "S", 15.00, 25, vaate,
 			 rukka);
 			 productRepository.save(p1);
-			 Product p2 = new Product("Vinkulelu", "Keltainen", "S", 5.00, 25, lelu,
+			 Product p2 = new Product("Vinkulelu", "Keltainen", "-", 5.00, 25, lelu,
 			 martta);
 			 productRepository.save(p2);
 			 Product p3 = new Product("Sadetakki", "Punainen", "M", 25.00, 100, vaate,
 			 pomppa);
 			 productRepository.save(p3);
-			 Product p4 = new Product("T-paita", "Valkoinen", "M", 10.00, 50, vaate,
+			 Product p4 = new Product("T-paita", "Valkoinen", "L", 10.00, 50, vaate,
 			 hurtta);
 			 productRepository.save(p4);
-			 Product p5 = new Product("Purulelu", "Sini-valkoinen", "M", 7.50, 50, lelu,
+			 Product p5 = new Product("Purulelu", "Sini-valkoinen", "-", 7.50, 50, lelu,
 			 rukka);
 			 productRepository.save(p5);
+			 Product p6 = new Product("Kuivaruoka", "-", "-", 7.80, 50, ruoka,
+			 rukka);
+			 productRepository.save(p6);
 
-			Order o1 = new Order("Amogus", "Amogus", "Amogus");
+			Order o1 = new Order("Jarkko Koiranen", "jake.koira@mail.com", "050123456");
 			orderRepository.save(o1);
 
 			 if (auRepository.findByUsername("admin") == null) {

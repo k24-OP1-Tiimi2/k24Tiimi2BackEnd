@@ -45,6 +45,11 @@ public class Product {
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
+    @ManyToOne
+    @JsonIgnoreProperties("products")
+    @JoinColumn(name = "order_id")
+    private Order order;
+
     public Product(String name, String color, String size, double price, int units_in_stock, Type type,
             Manufacturer manufacturer) {
         this.name = name;
@@ -124,4 +129,11 @@ public class Product {
         this.manufacturer = manufacturer;
     }
 
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }
