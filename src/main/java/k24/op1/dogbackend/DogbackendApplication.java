@@ -79,7 +79,7 @@ public class DogbackendApplication {
 			 rukka);
 			 productRepository.save(p5);
 
-			Order o1 = new Order("Amogus", "Amogus", "Amogus");
+			Order o1 = new Order("Amogus", "Amogus", "Amogus", "Amogus");
 			orderRepository.save(o1);
 
 			 if (auRepository.findByUsername("admin") == null) {

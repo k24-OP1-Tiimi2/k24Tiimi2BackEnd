@@ -36,7 +36,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/dogstore").permitAll() // Allow access to dogstore page for everyone
                         .requestMatchers("/register").permitAll() // Allow access to dogstore page for everyone
                         .requestMatchers(HttpMethod.POST, "/*").permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().permitAll())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login") // login sivu.
                         .defaultSuccessUrl("/dogstore", true) // frontpage uudelleenm ohjaus

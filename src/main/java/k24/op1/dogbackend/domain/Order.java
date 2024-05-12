@@ -17,13 +17,15 @@ public class Order {
     private String name;
     private String email;
     private String phone;
+    private String product;
 
     public Order() {}
 
-    public Order(String name, String email, String phone) {
+    public Order(String name, String email, String phone, String product) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.product = product;
     }
 
     public Long getId() {
@@ -58,5 +60,12 @@ public class Order {
         this.phone = phone;
     }
 
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
     
 }
