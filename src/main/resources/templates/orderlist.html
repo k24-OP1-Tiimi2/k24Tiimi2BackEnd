@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <title>Orders</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
-
 <body>
-
     <header>
         <h1>Orders</h1>
     </header>
@@ -27,12 +19,11 @@
             <td th:text="${order.name}"></td>
             <td th:text="${order.email}"></td>
             <td th:text="${order.phone}"></td>
-            <td><a class="btn btn-secondary" th:href="${order.product}">Varauksen tiedot</a></td>
+            <td><a th:href="${order.product}">Varauksen tiedot</a></td>
+            <td><a href="/orderlist/{id}"></a></td>
         </tr>
     </table>
 
     <a class="btn btn-primary" th:href="@{/dogstore}">Main page</a>
-
 </body>
-
 </html>

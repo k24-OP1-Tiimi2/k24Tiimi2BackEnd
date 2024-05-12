@@ -76,8 +76,6 @@ public class DogbackendApplication {
 			 rukka);
 			 productRepository.save(p6);
 
-			Order o1 = new Order("Jarkko Koiranen", "jake.koira@mail.com", "050123456");
-			orderRepository.save(o1);
 
 			 if (auRepository.findByUsername("admin") == null) {
 			 PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

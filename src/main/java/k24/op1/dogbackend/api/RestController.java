@@ -93,7 +93,6 @@ public class RestController {
     }
 
 
-
     // haku manufacturer listaan.
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String searchManufacturers(@RequestParam("searchTerm") String searchTerm,
