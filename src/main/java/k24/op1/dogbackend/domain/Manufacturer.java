@@ -14,16 +14,9 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 
-/* */
 public class Manufacturer {
-    /*
-     * Tämä @GeneratedValue(strategy = GenerationType.IDENTITY)
-     * Korvaa; @SequenceGenerator(name = "manufacturer_seq", sequenceName =
-     * "manufacturer_seq", allocationSize = 1)
-     * Huom. Muutettiin GenerationType.Auto = GenerationType.IDENTITY
-     */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotBlank(message = "Name is required")
     private String name;

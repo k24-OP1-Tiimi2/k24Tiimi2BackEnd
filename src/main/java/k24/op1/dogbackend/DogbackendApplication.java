@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 
 import k24.op1.dogbackend.domain.Manufacturer;
 import k24.op1.dogbackend.domain.ManufacturerRepository;
-import k24.op1.dogbackend.domain.Order;
 import k24.op1.dogbackend.domain.OrderRepository;
 import k24.op1.dogbackend.domain.Product;
 import k24.op1.dogbackend.domain.ProductRepository;

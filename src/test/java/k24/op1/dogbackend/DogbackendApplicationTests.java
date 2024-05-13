@@ -1,4 +1,4 @@
-/*package k24.op1.dogbackend;
+package k24.op1.dogbackend;
 
 import java.util.List;
 
@@ -33,22 +33,22 @@ class DogbackendApplicationTests {
 		assertThat(manufacturers.get(0).getName()).isEqualTo("Rukka");
 	 }
 
-	 /* 
+	 
 	 @Test
 	 public void createNewManufacturer() {
-	   Manufacturer manufacturer = new Manufacturer("Balenciaga", "United States", "USA-510");
+	   Manufacturer manufacturer = new Manufacturer("Balenciaga");
 	   manufacturerRepository.save(manufacturer);
 	   assertThat(manufacturer.getId()).isNotNull();
-	 } */
+	 }
 
-	 /* 
+	  
 	 @Test
 	 public void createNewManufacturerAndDelete() {
-	   Manufacturer manufacturer = new Manufacturer("Balenciaga", "United States", "USA-510");
+	   Manufacturer manufacturer = new Manufacturer("Balenciaga");
 	   manufacturerRepository.save(manufacturer);
 	   manufacturerRepository.deleteById(2L);
 	   assertThat(manufacturerRepository.findById(2L).isEmpty());
 	 } 
 
 
-}*/
+}

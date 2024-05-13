@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import k24.op1.dogbackend.domain.OrderRepository;
-import k24.op1.dogbackend.domain.ProductRepository;
 
 @CrossOrigin(origins = "*")
 @Controller
@@ -15,9 +14,6 @@ public class OrderController {
 
     @Autowired
     private OrderRepository orderRepository;
-
-    @Autowired
-    private ProductRepository productRepository;
 
     @GetMapping("/orderlist")
     public String showOrderList(Model model) {

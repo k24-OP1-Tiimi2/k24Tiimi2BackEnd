@@ -67,7 +67,6 @@
  			<groupId>org.springframework.boot</groupId>
  			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-<!--jos ei toimi tolla jdbcConnection filun kanssa niin tuo alempi depe takaisin-->
 
 		<dependency>
 			<groupId>com.h2database</groupId>

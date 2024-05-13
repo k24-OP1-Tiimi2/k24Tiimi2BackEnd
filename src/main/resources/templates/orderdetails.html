@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Order Details</title>
-</head>
+    <head>
+        <title>Order Details</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    </head>
 <body>
     <h1>Order Details</h1>
-    <!-- Tarkista löytyykö tilausta -->
     <div th:if="${order != null}">
         <p><strong>Product:</strong> <a th:text="${order.product}" th:href="${order.product}"></a></p>
     </div>
-    <!-- Jos ei tilausta löydy, näytä alla oleva -->
+    <a class="btn btn-primary btn-sm" th:href="@{/orderlist}">Back to Orders</a>
     <div th:unless="${order != null}">
         <p>No order details available</p>
     </div>

@@ -54,6 +54,15 @@ public class RestController {
     public @ResponseBody Product saveProductRest(@RequestBody Product product) {
         return ProductRepository.save(product);
     }
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+    Product replaceProduct(@RequestBody Product product, @PathVariable Long id) {
+        product.setId(id);
+        return ProductRepository.save(product);
+    }
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
+    void deleteProduct(@PathVariable Long id) {
+        ProductRepository.deleteById(id);
+    }
 
     @RequestMapping(value = "/manufacturers", method = RequestMethod.GET)
     public @ResponseBody List<Manufacturer> getManufacturersRest() {
@@ -91,6 +100,7 @@ public class RestController {
     public @ResponseBody Optional<Order> getOrdersByIdRest(@PathVariable("id") Long id) {
         return OrderRepository.findById(id);
     }
+
 
 
     // haku manufacturer listaan.
