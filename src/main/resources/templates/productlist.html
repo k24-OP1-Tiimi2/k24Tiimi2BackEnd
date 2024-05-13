@@ -51,8 +51,8 @@
             <td th:text="${product.price}"></td>
             <td th:text="${product.units_in_stock}"></td>
             <td th:text="${product.manufacturer.name}"></td>
-            <td><a class="btn btn-danger" th:href="@{/deleteproduct/{id}(id = ${product.id})}" onClick="return confirm('Are you sure you want to delete this product?')">Delete</a></td>
-            <td><a class="btn btn-primary" th:href="@{/editproduct/{id}(id = ${product.id})}">Edit</a></td>
+            <td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-danger" th:href="@{/deleteproduct/{id}(id = ${product.id})}" onClick="return confirm('Are you sure you want to delete this product?')">Delete</a></td>
+            <td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-primary" th:href="@{/editproduct/{id}(id = ${product.id})}">Edit</a></td>
         </tr>
     </table>
 

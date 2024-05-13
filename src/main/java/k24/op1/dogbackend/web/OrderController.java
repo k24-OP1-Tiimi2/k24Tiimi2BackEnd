@@ -1,5 +1,6 @@
 package k24.op1.dogbackend.web;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +11,7 @@ import k24.op1.dogbackend.domain.OrderRepository;
 
 @CrossOrigin(origins = "*")
 @Controller
+@PreAuthorize("hasAuthority('ADMIN')")
 public class OrderController {
 
     @Autowired

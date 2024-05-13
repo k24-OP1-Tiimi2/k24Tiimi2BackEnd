@@ -19,7 +19,7 @@
             <td th:text="${order.name}"></td>
             <td th:text="${order.email}"></td>
             <td th:text="${order.phone}"></td>
-            <td><a th:href="@{/orderdetails/{id}(id=${order.id})}">Order Details</a></td>
+            <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/orderdetails/{id}(id=${order.id})}">Order Details</a></td>
 
         </tr>
     </table>

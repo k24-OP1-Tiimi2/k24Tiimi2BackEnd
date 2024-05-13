@@ -1,6 +1,7 @@
 package k24.op1.dogbackend.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.validation.Valid;
 
 @Controller
+@PreAuthorize("hasAuthority('ADMIN')")
 public class ProductController {
 
     @Autowired
@@ -27,11 +29,7 @@ public class ProductController {
     @Autowired
     private TypeRepository typeRepository;
 
-    @GetMapping("/dogstore")
-    public String showDogStore(Model model) {
-        model.addAttribute("products", productRepository.findAll());
-        return "dogstore";
-    }
+    
 
     @GetMapping("/productlist")
     public String showProductlist(Model model) {
@@ -57,7 +55,6 @@ public class ProductController {
         productRepository.save(product);
         return "redirect:/productlist";
     }
-
     @GetMapping("/deleteproduct/{id}")
     public String deleteProduct(@PathVariable("id") Long id, Model model) {
         if (id != null) {
@@ -65,7 +62,6 @@ public class ProductController {
         }
         return "redirect:/productlist";
     }
-
     @GetMapping("/editproduct/{id}")
     public String editProduct(@PathVariable("id") Long id, Model model) {
         if (id != null) {

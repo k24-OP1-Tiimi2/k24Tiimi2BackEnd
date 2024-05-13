@@ -19,6 +19,11 @@ public class AppUserController {
         this.appUserService = appUserService;
     }
 
+    @GetMapping("/dogstore")
+    public String showDogStore(Model model) {
+        return "dogstore";
+    }
+
     // kirjautuminen
     @RequestMapping(value = "/login")
     public String login() {
