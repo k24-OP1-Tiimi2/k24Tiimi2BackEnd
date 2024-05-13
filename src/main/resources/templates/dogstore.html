@@ -26,7 +26,7 @@
     <div class="container-fluid h-100 d-flex flex-column align-items-center justify-content-center">
         <h1>Dog Store</h1>
         <div class="d-flex flex-column">
-            <a class="btn btn-light" href="https://k24-OP1-Tiimi2.github.io/k24Tiimi2BackEnd/#/">Webstore</a>
+            <a class="btn btn-light" href="https://k24-OP1-Tiimi2.github.io/k24Tiimi2Frontend/">Webstore</a>
             <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="btn btn-light" href="/productlist">Products</a>
             <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="btn btn-light" href="/manufacturerlist">Manufacturers</a>
             <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="btn btn-light" href="/orderlist">Orders</a>
